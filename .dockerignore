@@ -1,0 +1,16 @@
+.git
+.venv-diarization
+.whisper-batch-subtitles
+__pycache__
+*.pyc
+tests
+process
+profiles
+state
+whisper-batch-subtitles.yaml
+*.egg-info
+.pytest_cache
+.mypy_cache
+.ruff_cache
+Dockerfile
+.dockerignore

@@ -1,0 +1,56 @@
+name: Bug report
+description: Something isn't working the way it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. If this is a **security vulnerability**, please
+        see [SECURITY.md](../../blob/main/SECURITY.md) instead of filing details here.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and what you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Command(s) run, relevant config/YAML, and the smallest example that reproduces it.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste from `.whisper-batch-subtitles/logs/runtime.log` or console output. This will be rendered as a code block automatically.
+      render: shell
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `python -m whisper_batch_subtitles --help` header, or `pip show whisper-batch-subtitles`.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and Python version
+      placeholder: "e.g. Windows 11, Python 3.13"
+    validations:
+      required: true
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: Device
+      options:
+        - CPU only
+        - Single GPU (CUDA)
+        - Multiple GPUs (CUDA)
+        - ROCm / AMD GPU
+        - Not sure
+    validations:
+      required: false

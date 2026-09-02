@@ -1,0 +1,16 @@
+.whisper-batch-subtitles/
+__pycache__/
+*.pyc
+whisper-batch-subtitles.yaml
+.venv-diarization/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info
+build/
+dist/
+.coverage
+htmlcov/
+.venv/
+venv/
