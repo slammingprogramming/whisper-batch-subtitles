@@ -1,7 +1,14 @@
 # Whisper Batch Subtitles
 
 [![CI](https://github.com/slammingprogramming/whisper-batch-subtitles/actions/workflows/ci.yml/badge.svg)](https://github.com/slammingprogramming/whisper-batch-subtitles/actions/workflows/ci.yml)
+[![Latest tag](https://img.shields.io/github/v/tag/slammingprogramming/whisper-batch-subtitles?sort=semver)](https://github.com/slammingprogramming/whisper-batch-subtitles/tags)
 [![License: AGPL v3 or later](https://img.shields.io/badge/License-AGPLv3--or--later-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+[![Open issues](https://img.shields.io/github/issues/slammingprogramming/whisper-batch-subtitles)](https://github.com/slammingprogramming/whisper-batch-subtitles/issues)
+[![Last commit](https://img.shields.io/github/last-commit/slammingprogramming/whisper-batch-subtitles)](https://github.com/slammingprogramming/whisper-batch-subtitles/commits/main)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Security policy](https://img.shields.io/badge/security-policy-blue.svg)](SECURITY.md)
 
 High-throughput batch transcription and subtitle generation for large media libraries, built on `faster-whisper`.
 
@@ -15,6 +22,26 @@ Instead of treating transcription as a one-off script, Whisper Batch Subtitles t
 - optionally translate into one or more languages
 - write subtitle outputs
 - resume safely after interruption
+
+## Table of Contents
+
+- [Why This Project](#why-this-project)
+- [Features](#features)
+- [Status](#status)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Recommended Split-Environment Setup](#recommended-split-environment-setup)
+- [Quick Start](#quick-start)
+- [Example](#example)
+- [Configuration](#configuration)
+- [Multi-Track Workflows](#multi-track-workflows)
+- [Diarization](#diarization)
+- [Runtime State](#runtime-state)
+- [Project Direction](#project-direction)
+- [Development](#development)
+- [Contributing](#contributing)
+- [Security](#security)
+- [License](#license)
 
 ## Why This Project
 
@@ -66,6 +93,11 @@ It already includes the core pipeline architecture, resumability, caching, hardw
 - `ffprobe`
 
 You will also want a CUDA-capable GPU for the best throughput, but CPU-only operation is supported.
+
+Developed and tested primarily on Windows; CI runs the full test suite on Linux (Python 3.10–3.13) on every
+push and pull request, so the core pipeline is portable. There's nothing OS-specific in the codebase
+outside of one Windows-specific RAM-detection code path in `hardware.py` (with a `sysconf`-based fallback
+for other platforms).
 
 ## Installation
 
